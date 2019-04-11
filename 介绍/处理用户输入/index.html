@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="text1"/>
+        <input type="text" v-model="text2"/>
+        <ul>
+            <li><span>input1 为：{{text1}}</span></li>
+            <li><span>input2 为：{{text2}}</span></li>
+        </ul>
+        <button v-on:click="changeContent">内容互换</button>
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                text1:'',
+                text2:''
+            },
+            methods:{
+                changeContent:function(){
+                    [this.text1,this.text2] = [this.text2,this.text1];
+                }
+            }
+        });
+        
+    </script>
+</body>
+
+</html>
